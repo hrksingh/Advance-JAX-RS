@@ -15,7 +15,6 @@ public class AppController {
 	public Response sayHello() {
 
 		String str = "Hope its works";
-		;
 
 		return Response.status(200).entity(str).build();
 	}
