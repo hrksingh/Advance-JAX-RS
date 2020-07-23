@@ -8,14 +8,18 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-@Path("/test")
-public class AppController {
+@Path("{pathParam}/test")
+public class ParamAndQueryExample {
+
+	@PathParam(value = "pathParam")
+	private String PathParamter;
+	@QueryParam(value = "query")
+	private String QueryParamter;
 
 	@GET
 	@Produces(MediaType.TEXT_PLAIN)
-	public Response sayHello() {
-		String str = "Hope its works";
+	public Response test() {
+		String str = "Path Param used is " + PathParamter + " and Query Param is " + QueryParamter;
 		return Response.status(200).entity(str).build();
 	}
-
 }
